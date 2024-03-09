@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<!-- Coding by CodingNepal | www.codingnepalweb.com-->
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style1.css">
+    <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500..900&display=swap" rel="stylesheet">
+    <link rel="icon" href="file:///C:/Users/QHTF/Downloads/voxile(1).png" type="image/x-icon">
+    <title>Voxile Log In/Sign Up</title>
+    <style>
+        .navbar-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            background-color: #5e17eb;
+            padding: 10px;
+            align-items: center;
+            z-index: 1000;
+            /* Ensure the navbar is on top of other elements */
+        }
+
+        .logo img {
+            width: 140px;
+            /* Adjust the size of your logo */
+            height: auto;
+            margin-right: 10px;
+            /* Add some spacing between the logo and navigation */
+        }
+
+        .aligned-navbar {
+            text-align: center;
+            /* Align text within the navigation links to the center */
+            align-items: center;
+        }
+
+        .aligned-navbar a {
+            color: #ffffff;
+            /* Navigation link text color */
+            text-decoration: none;
+            /* Remove underline from links */
+            padding: 1px 20px;
+            /* Padding around the link text */
+            display: inline-block;
+            /* Display links inline */
+            font-size: 30px;
+            /* Font size for navigation links */
+            text-align: center;
+            /* Align text within the navigation links to the center */
+        }
+
+        .aligned-navbar a:hover {
+            background-color: #f0f0f000;
+            /* Change background color on hover */
+        }
+
+        nav a:hover {
+            color: #ffbb3c;
+            /* Change color on hover */
+        }
+
+        .profile-section {
+            display: flex;
+            align-items: center;
+        }
+
+        .profile-info {
+            margin-right: 10px;
+            color: #fff;
+            margin-left: 50px;
+        }
+
+        .profile-image {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #ccc;
+            /* Placeholder color */
+        }
+
+        .container {
+            position: relative;
+            margin-top: 100px;
+            /* Add margin top to create space for the navbar */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar-container">
+        <div class="logo">
+            <img src="file:///C:/Users/QHTF/Downloads/voxile(1)logo.png" alt="Your Logo">
+        </div>
+    </div>
+
+    <div class="container">
+        <input type="checkbox" id="flip">
+        <div class="cover">
+            <div class="front">
+                <img src="file:///C:/Users/QHTF/Downloads/Untitled%20design(16).png" alt="">
+                <div class="text">
+                    <span class="text-1">Every new friend is a <br> new adventure</span>
+                    <span class="text-2">Let's get connected</span>
+                </div>
+            </div>
+            <div class="back">
+                <!--<img class="backImg" src="images/backImg.jpg" alt="">-->
+                <div class="text">
+                    <span class="text-1">Complete miles of journey <br> with one step</span>
+                    <span class="text-2">Let's get started</span>
+                </div>
+            </div>
+        </div>
+        <div class="forms">
+            <div class="form-content">
+                <div class="login-form">
+                    <div class="title">Login</div>
+                    <form id="loginForm" action="#">
+                        <div class="input-boxes">
+                            <div class="input-box">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="loginEmail" placeholder="Enter your Gmail" required>
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                            </div>
+                            <div class="text"><a href="#">Forgot password?</a></div>
+                            <div class="button input-box">
+                                <input type="submit" value="Submit">
+                            </div>
+                            <div class="text sign-up-text">Don't have an account? <label for="flip">Signup now</label></div>
+                        </div>
+                    </form>
+                </div>
+                <div class="signup-form">
+                    <div class="title">Signup</div>
+                    <form id="signupForm" action="#">
+                        <div class="input-boxes">
+                            <div class="input-box">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="signupName" placeholder="Enter your name" required>
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="signupEmail" placeholder="Enter your Gmail" required>
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="signupPassword" placeholder="Enter your password" required>
+                            </div>
+                            <div class="button input-box">
+                                <input type="submit" value="Submit">
+                            </div>
+                            <div class="text sign-up-text">Already have an account? <label for="flip">Login now</label></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var email = document.getElementById("loginEmail").value;
+            var password = document.getElementById("loginPassword").value;
+
+            // Basic validation for Gmail account
+            if (email.endsWith('@gmail.com')) {
+                // Perform your login process here
+                alert("Login Successful!");
+                // Redirect to home page
+                window.location.href = "file:///C:/Users/QHTF/Downloads/TEMPLATE.html#"; // Replace "home.html" with your actual home page URL
+            } else {
+                alert("Please enter a valid Gmail account.");
+            }
+        });
+
+        document.getElementById("signupForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var name = document.getElementById("signupName").value;
+            var email = document.getElementById("signupEmail").value;
+
+            // Basic validation for Gmail account
+            if (email.endsWith('@gmail.com')) {
+                // Perform your signup process here
+                alert("Signup Successful!");
+                // Redirect to home page with user's name as query parameter
+                window.location.href = "file:///C:/Users/QHTF/Downloads/TEMPLATE.html?name=" + encodeURIComponent(name); // Replace "home.html" with your actual home page URL
+            } else {
+                alert("Please enter a valid Gmail account.");
+            }
+        });
+    </script>
+
+</body>
+
+</html>
