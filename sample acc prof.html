@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500..900&display=swap" rel="stylesheet">
+    <link rel="icon" href="file:///C:/Users/QHTF/Downloads/voxile(1).png" type="image/x-icon">
+    <title>Voxile</title>
+    <style>
+        body {
+            font-family: "League Spartan", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('file:///C:/Users/QHTF/Downloads/Untitled%20design(15).png'); /* Add your background image path here */
+            background-size: cover;
+            background-position: center;
+            height: 100%;
+            overflow: auto;
+        }
+        .container {
+            max-width: 600px; /* Adjusted max-width */
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .container1 {
+            max-width: 600px; /* Adjusted max-width */
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            margin-top: 20px;
+            display: none;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+        }
+        .form-group input[type="text"], .form-group input[type="email"], .form-group input[type="file"], .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #5e17eb;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .form-group textarea {
+            resize: vertical;
+        }
+        .form-group input[type="submit"] {
+            background-color: #5e17eb;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-group input[type="submit"]:hover {
+            background-color: #5e17eb;
+        }
+        .edit-btn {
+            background-color: #5e17eb;
+            font-family: "League Spartan", sans-serif;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+        }
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+        .avatar-section {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .avatar-choices {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .avatar-choice {
+            margin-right: 10px;
+        }
+        .avatar-choice label {
+            display: inline-block;
+            cursor: pointer;
+            border: 2px solid transparent;
+            border-radius: 5px;
+        }
+        .avatar-choice input[type="radio"] {
+            display: none;
+        }
+        .avatar-choice input[type="radio"]:checked + label {
+            border-color: #5e17eb;
+        }
+        .avatar-choice img {
+            width: 75px; /* Adjusted size of avatar images */
+            height: 75px; /* Adjusted size of avatar images */
+            border-radius: 50%;
+        }
+        .avatar-btn {
+            background-color: #5e17eb;
+            font-family: "League Spartan", sans-serif;
+            margin-top: 20px;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .avatar-btn:hover {
+            background-color: #6e30ec;
+        }
+        .navbar-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            background-color: #5e17eb;
+            padding: 10px;
+            align-items: center;
+            z-index: 1000; /* Ensure the navbar is on top of other elements */
+        }
+
+        .logo img {
+            width: 140px; /* Adjust the size of your logo */
+            height: auto;
+            margin-right: 10px; /* Add some spacing between the logo and navigation */
+        }
+
+        .aligned-navbar {
+            text-align: right; /* Align the text to the right */
+            align-items: center;
+            /* margin-right: right;  Remove this line */
+        }
+
+        .aligned-navbar a {
+            color: #ffffff; /* Navigation link text color */
+            text-decoration: none; /* Remove underline from links */
+            padding: 1px 20px; /* Padding around the link text */
+            display: inline-block; /* Display links inline */
+            font-size: 30px; /* Font size for navigation links */
+            text-align: right; /* Align text within the navigation links to the center */
+        }
+
+        .aligned-navbar a:hover {
+            background-color: #f0f0f000; /* Change background color on hover */
+        }
+
+        nav a:hover {
+            color: #ffbb3c; /* Change color on hover */
+        }
+
+        .profile-section {
+            display: flex;
+            align-items: center;
+        }
+
+        .profile-info {
+            margin-right: 10px;
+            color: #fff;
+            margin-left: 50px;
+        }
+
+        .profile-image {
+            width: 40px;
+            height: 40px;
+            margin-right: 50px;
+            border-radius: 50%;
+            background-color: #ccc; /* Placeholder color */
+        }
+
+        .container {
+            position: relative;
+            margin-top: 100px; /* Add margin top to create space for the navbar */
+        }
+        .profile-section {
+            display: flex;
+            align-items: center;
+        }
+        .profile-info {
+            margin-right: 10px;
+            color: #fff;
+            margin-left: 50px;
+        }
+        .profile-image {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #ccc; /* Placeholder color */
+        }
+        nav a:hover {
+            color: #ffbb3c; /* Change color on hover */
+        }
+        section {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Account</h1>
+        <div id="profile-info">
+            <img src="file:///C:/Users/QHTF/Downloads/Untitled%20design(27).png" alt="Avatar" class="avatar">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <p id="username">Set Username</p>
+            </div>
+            <div class="form-group">
+                <label for="fullname">Full Name:</label>
+                <p id="fullname">Set Full Name</p>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <p id="email">Set Email</p>
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <p id="dob">Set Date of Birth</p>
+            </div>
+            <div class="form-group">
+                <label for="bio">Bio:</label>
+                <p id="bio">Set Bio</p>
+            </div>
+        </div>
+        <button class="edit-btn" onclick="toggleEdit()">Edit Profile</button>
+        <form id="edit-form" onsubmit="saveChanges(event)">
+            <div class="form-group">
+                <label for="newUsername">New Username:</label>
+                <input type="text" id="newUsername" name="newUsername">
+            </div>
+            <div class="form-group">
+                <label for="newFullName">New Full Name:</label>
+                <input type="text" id="newFullName" name="newFullName">
+            </div>
+            <div class="form-group">
+                <label for="newEmail">New Email:</label>
+                <input type="email" id="newEmail" name="newEmail">
+            </div>
+            <div class="form-group">
+                <label for="newDOB">New Date of Birth:</label>
+                <input type="text" id="newDOB" name="newDOB">
+            </div>
+            <div class="form-group">
+                <label for="newBio">New Bio:</label>
+                <textarea id="newBio" name="newBio"></textarea>
+            </div>
+            <input type="submit" value="Save Changes">
+        </form>
+    </div>
+    <div class="container1">
+        <div class="avatar-section">
+            <h2>Choose Avatar</h2>
+            <div class="avatar-choices">
+                <div class="avatar-choice">
+                    <input type="radio" id="avatar1" name="avatar" value="file:///C:/Users/QHTF/Downloads/Untitled%20design(19).png">
+                    <label for="avatar1"><img src="file:///C:/Users/QHTF/Downloads/Untitled%20design(19).png" alt="Avatar 1"></label>
+                </div>
+                <div class="avatar-choice">
+                    <input type="radio" id="avatar2" name="avatar" value="file:///C:/Users/QHTF/Downloads/Untitled%20design(20).png">
+                    <label for="avatar2"><img src="file:///C:/Users/QHTF/Downloads/Untitled%20design(20).png" alt="Avatar 2"></label>
+                </div>
+                <div class="avatar-choice">
+                    <input type="radio" id="avatar3" name="avatar" value="file:///C:/Users/QHTF/Downloads/Untitled%20design(22).png">
+                    <label for="avatar3"><img src="file:///C:/Users/QHTF/Downloads/Untitled%20design(22).png" alt="Avatar 3"></label>
+                </div>
+                <div class="avatar-choice">
+                    <input type="radio" id="avatar4" name="avatar" value="file:///C:/Users/QHTF/Downloads/Untitled%20design(21).png">
+                    <label for="avatar4"><img src="file:///C:/Users/QHTF/Downloads/Untitled%20design(21).png" alt="Avatar 4"></label>
+                </div>
+                <div class="avatar-choice">
+                    <input type="radio" id="avatar5" name="avatar" value="file:///C:/Users/QHTF/Downloads/Untitled%20design(26).png">
+                    <label for="avatar5"><img src="file:///C:/Users/QHTF/Downloads/Untitled%20design(26).png" alt="Avatar 5"></label>
+                </div>
+            </div>
+            <button class="avatar-btn" onclick="chooseAvatar()">Select Avatar</button>
+        </div>
+        <div class="navbar-container">
+            <div class="logo">
+            <img src="file:///C:/Users/QHTF/Downloads/voxile(1)logo.png" alt="Your Logo">
+
+        </div>
+    </div>
+
+    <script>
+        
+        function toggleEdit() {
+            var profileInfo = document.getElementById("profile-info");
+            var editForm = document.getElementById("edit-form");
+            var editBtn = document.querySelector(".edit-btn");
+
+            if (profileInfo.style.display === "none") {
+                profileInfo.style.display = "block";
+                editForm.style.display = "none";
+                editBtn.innerText = "Edit Profile";
+            } else {
+                profileInfo.style.display = "none";
+                editForm.style.display = "block";
+                editBtn.innerText = "Cancel Edit";
+            }
+        }
+
+        function saveChanges(event) {
+            event.preventDefault();
+
+            var newUsername = document.getElementById("newUsername").value;
+            var newFullName = document.getElementById("newFullName").value;
+            var newEmail = document.getElementById("newEmail").value;
+            var newDOB = document.getElementById("newDOB").value;
+            var newBio = document.getElementById("newBio").value;
+
+            document.getElementById("username").innerText = newUsername;
+            document.getElementById("fullname").innerText = newFullName;
+            document.getElementById("email").innerText = newEmail;
+            document.getElementById("dob").innerText = newDOB;
+            document.getElementById("bio").innerText = newBio;
+
+            toggleEdit();
+        }
+
+        function chooseAvatar() {
+            var selectedAvatar = document.querySelector('input[name="avatar"]:checked').value;
+            document.querySelector(".avatar").src = selectedAvatar;
+        }
+    </script>
+</body>
+</html>
